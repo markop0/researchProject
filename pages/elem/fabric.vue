@@ -6,6 +6,7 @@
       id="c"
       style="border: 1px solid #7a7a7a"
     ></canvas>
+    <img src="../../static/img/zg1.png" alt="" />
   </div>
 </template>
 
@@ -13,21 +14,21 @@
 import { fabric } from "fabric";
 let p1 = "https://s3.v.360xkw.com/yzb/photos/1663741133187_23ea7699.jpg";
 let p2 = "https://s3.v.360xkw.com/yzb/photos/1663748022955_500e7a1c.png";
+let zg = ["../../static/img/zg1.png"];
 let pt = {
   // stroke: "#409eff", // 边框颜色
   // strokeWidth: 2, // 边框粗细px
   strokeDashArray: [20, 5, 14], // 边框虚线规则：填充20px 空5px 填充14px 空20px 填充5px ……
-  // shadow: "10px 20px 6px rgba(10, 20, 30, 0.4)", // 投影：右偏移10px，下偏移20px，羽化6px，投影颜色及透明度
-
   borderColor: "#409eff", // 选中时，边框颜色
   borderScaleFactor: 2, // 选中时，边的粗细
   borderDashArray: [10, 5], // 选中时，虚线边的规则
+  // shadow: "10px 20px 6px rgba(10, 20, 30, 0.4)", // 投影：右偏移10px，下偏移20px，羽化6px，投影颜色及透明度
 
   transparentCorners: false, // 选中时，控制点填充状态。true 空心；false 实心
   cornerColor: "#333333", // 选中时，控制点颜色
-  cornerStrokeColor: "pink", // 选中时，控制点边框的颜色
   cornerStyle: "circle", // 选中时，控制点属性。默认rect 矩形；circle 圆形
   cornerSize: 10, // 选中时，控制点大小
+  cornerStrokeColor: "pink", // 选中时，控制点边框的颜色
   cornerDashArray: [10, 5], // 选中时，虚线角的规则
   selectionBackgroundColor: "#6c6c6ca8", // 选中时，选框背景色
   // padding: 40, // 选中时，选择框离元素的内边距：40px
@@ -46,10 +47,11 @@ export default {
 
   methods: {
     init() {
+      console.log("init*******");
       const canvas = new fabric.Canvas("c"); // 这里传入的是canvas的id
 
       // 创建一个长方形
-      const rect = new fabric.Rect({
+      /*  const rect = new fabric.Rect({
         ...{
           top: 30,
           left: 30,
@@ -92,8 +94,12 @@ export default {
         canvas.add(oImg);
       });
       canvas.add(rect);
-      canvas.add(circle);
-
+      canvas.add(circle); */
+      /*  const img = new fabric.Image.fromURL(zg[0], (oImg) => {
+        // oImg.scale(0.5).set("flipX", true); //缩小图像并翻转
+        // oImg.top(200);
+        canvas.add(oImg);
+      }); */
       console.log("canvas stringify ", JSON.stringify(canvas));
       console.log("canvas toJSON", canvas.toJSON());
       console.log("canvas toObject", canvas.toObject());
